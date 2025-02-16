@@ -1,0 +1,31 @@
+The problem can be solved by using `flex-shrink` or `calc()` to adjust the width of the child elements. Here's an example using `calc()`:
+
+```css
+div {
+  display: flex;
+  justify-content: space-between;
+}
+
+div > * {
+  width: calc(50% - 10px); /* Adjust 10px based on the space between items */
+  flex-shrink: 1; /* Allow items to shrink if necessary */
+}
+```
+
+This approach ensures the child elements are adjusted to fit the container correctly while maintaining spacing.
+
+Alternatively, you can use `flex-basis` along with `flex-grow` and `flex-shrink` for more robust control. This allows for a more dynamic layout where elements can grow or shrink based on content and available space.
+
+```css
+div {
+  display: flex;
+  justify-content: space-between;
+}
+
+div > * {
+  flex-basis: calc(50% - 10px);
+  flex-grow: 0; /* Prevents elements from growing beyond their basis */
+  flex-shrink: 1; /* Allows elements to shrink if necessary */
+}
+```
+This refined approach provides better control and more reliable layout in various scenarios.
