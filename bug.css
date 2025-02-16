@@ -1,0 +1,14 @@
+The following CSS code results in unexpected behavior in some browsers:
+
+```css
+div {
+  display: flex;
+  justify-content: space-between;
+}
+
+div > * {
+  width: 50%;
+}
+```
+
+This code intends to place two child elements equally spaced within a flex container. However, depending on the browser and the content of the child elements, the layout may not be consistent. This is because the `width: 50%;` rule doesn't account for the space occupied by the `justify-content: space-between;` property, leading to unexpected spacing or overlap.
